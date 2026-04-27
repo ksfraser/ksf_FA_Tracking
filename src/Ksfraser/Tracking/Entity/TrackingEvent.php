@@ -50,6 +50,11 @@ class TrackingEvent implements JsonSerializable
         $this->url = $url;
         $this->eventData = [];
         $this->createdAt = new DateTime();
+        $this->contactId = null;
+        $this->visitorId = null;
+        $this->referrer = null;
+        $this->ipAddress = null;
+        $this->userAgent = null;
     }
 
     public function getId(): string

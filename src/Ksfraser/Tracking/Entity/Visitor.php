@@ -43,6 +43,12 @@ class Visitor implements JsonSerializable
         $this->visitCount = 1;
         $this->pageViewCount = 0;
         $this->isActive = true;
+        $this->contactId = null;
+        $this->email = null;
+        $this->lastKnownUrl = [];
+        $this->source = '';
+        $this->device = '';
+        $this->browser = '';
     }
 
     public function getId(): string
