@@ -1,0 +1,4 @@
+<?php
+// Tracking DB Functions
+function track_event(string$visitor_id,string$event_type,string$url,string$ip='',string$ua=''):int{global$db;$cid=$_SESSION["wa_user"]->contact_id?:'NULL';$db->query("INSERT INTO ".TB_PREF."tracking_events(visitor_id,contact_id,event_type,url,ip_address,user_agent)VALUES(".$db->escape($visitor_id).",".$cid.",".$db->escape($event_type).",".$db->escape($url).",".$db->escape($ip).",".$db->escape($ua).")");return$db->insert_id;}
+function get_tracking_stats():?array{global$db;$r=$db->query("SELECT COUNT(DISTINCT visitor_id) as visitors, COUNT(*) as events FROM ".TB_PREF."tracking_events WHERE created_at > DATE_SUB(NOW(),INTERVAL 30 DAY)");return$r?$db->fetch_assoc($r):null;}
