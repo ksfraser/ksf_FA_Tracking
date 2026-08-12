@@ -1,6 +1,6 @@
 -- Tracking module database schema for FrontAccounting
 
-CREATE TABLE IF NOT EXISTS `fa_tracking_events` (
+CREATE TABLE IF NOT EXISTS `0_tracking_events` (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `visitor_id` VARCHAR(100) NOT NULL,
     `contact_id` INT(11) DEFAULT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `fa_tracking_events` (
     KEY `contact_id` (`contact_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE TABLE IF NOT EXISTS `fa_tracking_visitors` (
+CREATE TABLE IF NOT EXISTS `0_tracking_visitors` (
     `id` VARCHAR(100) NOT NULL,
     `first_visit` DATETIME NOT NULL,
     `last_visit` DATETIME NOT NULL,
@@ -23,4 +23,3 @@ CREATE TABLE IF NOT EXISTS `fa_tracking_visitors` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `fa_modules` (`name`, `version`, `enabled`, `installed`) VALUES ('Tracking', '1.0.0', 1, NOW()) ON DUPLICATE KEY UPDATE `version` = '1.0.0';
